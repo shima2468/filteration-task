@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import styles from './ContactUs.module.css'
-import { useFormik } from 'formik';
-import * as Yup from "Yup" 
-import axios from 'axios';
-import Titel from '../Titel/Titel';
+import React, { useState } from "react";
+import styles from "./ContactUs.module.css";
+import { useFormik } from "formik";
+import * as Yup from "Yup";
+import axios from "axios";
+import Titel from "../Titel/Titel";
 
 export default function ContactUs() {
- const [apiResponse, setApiResponse] = useState({});
+  const [apiResponse, setApiResponse] = useState({});
   const [buttonLauding, setbuttonLauding] = useState(false);
   const apiUrl = "https://upskilling-egypt.com:3001/contact";
 
@@ -35,7 +35,10 @@ export default function ContactUs() {
       })
       .catch((res) => {
         setbuttonLauding(false);
-        setApiResponse({ isError: true, message: "Something went wrong, please try again later" });
+        setApiResponse({
+          isError: true,
+          message: "Something went wrong, please try again later",
+        });
       });
   }
 
@@ -49,16 +52,13 @@ export default function ContactUs() {
     validationSchema: validationSchema,
     onSubmit: handleRegister,
   });
-   
+
   return (
-  
-    
     <>
-          <div className="py-20 bg-[#FCFCFC] overflow-x-hidden ">
-       <Titel title="Contact Us"></Titel>
+      <div className="py-20 bg-[#FCFCFC] overflow-x-hidden ">
+        <Titel title="Contact Us"></Titel>
         <div className="flex flex-col md:flex-row justify-center gap-6 lg:gap-24 items-center mt-10">
           <form onSubmit={formik.handleSubmit} className="my-5 ">
-         
             <input
               name="name"
               onChange={formik.handleChange}
@@ -66,7 +66,7 @@ export default function ContactUs() {
               value={formik.values.name}
               type="text"
               className="rounded-3xl m-3 p-5 lg:px-9 lg:py-6 lg:text-lg bg-[#CEDCFF] block w-9/10 sm:w-80 lg:w-90 h-4 placeholder:text-black capitalize"
-              placeholder="name "
+              placeHolder="name "
             ></input>
 
             {formik.touched.name && formik.errors.name ? (
@@ -74,14 +74,14 @@ export default function ContactUs() {
                 {formik.errors.name}
               </div>
             ) : null}
-   <input
+            <input
               name="email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
               type="email"
               className="rounded-3xl m-3 p-5 lg:px-9 lg:py-6 lg:text-lg bg-[#CEDCFF] block w-9/10 sm:w-80 lg:w-90 h-4 placeholder:text-black capitalize"
-              placeholder="email "
+              placeHolder="email "
             ></input>
             {formik.touched.email && formik.errors.email ? (
               <div className="text-red-500 text-center text-sm">
@@ -95,7 +95,7 @@ export default function ContactUs() {
               value={formik.values.phone}
               type="text"
               className="rounded-3xl m-3 p-5 lg:px-9 lg:py-6 lg:text-lg bg-[#CEDCFF] block w-9/10 sm:w-80 lg:w-90 h-4 placeholder:text-black capitalize"
-              placeholder="phone"
+              placeHolder="phone"
             ></input>
 
             {formik.touched.phone && formik.errors.phone ? (
@@ -104,7 +104,7 @@ export default function ContactUs() {
               </div>
             ) : null}
 
-            {/* message for user */}
+            {/* message htmlFor user */}
             {apiResponse.message ? (
               <div
                 className={` text-center text-xl mb-3  ${
@@ -114,7 +114,6 @@ export default function ContactUs() {
                 {apiResponse.message}
               </div>
             ) : null}
-
 
             <button
               type="submit"
@@ -139,8 +138,6 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-     
-    
     </>
-  )
+  );
 }
