@@ -1,24 +1,37 @@
 import React from 'react'
 import styles from './Hero.module.css'
 import logo from "../../assets/Logo.png"
+import heroImg from "../../assets/Herobg.png"
 export default function Hero() {
   return (
     <>
-       <section class="bg-white bg-left h-screen bg-contain bg-no-repeat " id='Hero'>
-    <div className="py-32 px-4 mx-auto  h-[200px]  lg:py-94 lg:px-12 flex flex-col justify-center items-center ">
-         <div className="logo-img w-60 mb-24">
-                      <img className='w-full' src={logo}/>
+       <section class="bg-white  h-screen relative flex justify-center items-center " >
+                    <div className="HeroImg  absolute top-0 left-0 h-[95%] z-10 ">
+                                 <img src={heroImg} alt="" className='h-full  object-cover' />    
+                    </div>
+  
+  
+  
+    <div className="z-20 flex  gap-16 flex-col justify-center items-center  absolute">
+         <div className="logo-img">
+                      <img className='w-2/3 xl:w-4/5 mx-auto' src={logo}/>
          </div>
-         
-        <a href="#" className="inline-flex justify-center items-center  mb-7 py-2 px-6  bg-[#6D91EE]  rounded-xl  hover:bg-gray-200 " role="alert">
-            <span className="text-xs  rounded-full text-white">Experts</span> 
-        </a>
+         <div className="hero-content text-white text-center ">
+                            <button className="bg-[#6D91EE] text-white rounded-2xl text-sm p-1 px-4 sm:text-lg sm:px-6 md:px-6 sm:font-medium cursor-pointer hover:opacity-80 ">
+                                        Experts
+                            </button>
+                             <h2 className="my-2 text-4xl text-[#4F4F4F] md:text-5xl lg:text-6xl xl:text-7xl  text-center">
+             
+           <span class="font-extralight tracking-tight">Lorem</span>
+           <span class="rounded-full text-black font-extrabold  block">Lorem lorem</span>    </h2>
+        <p className="my-3 w-1/2  min-w-50 md:max-w-4/9 mx-auto sm:my-4 sm:text-lg lg:text-sm text-black text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+        <button className="bg-[#6D91EE] text-white rounded-2xl text-sm p-2 px-4 sm:text-lg sm:px-6 md:px-14 sm:font-medium cursor-pointer hover:opacity-80 ">
+                                        Help me
+           </button>
+         </div>
+      
         
-        <h2 className="mb-4 text-4xl font-extralight tracking-tight leading-none text-black md:text-5xl lg:text-6xl  text-center">Lorem <br/>   <span class="rounded-full text-black font-extrabold">Lorem lorem</span>    </h2>
-        <p className="mb-8 text-lg font-normal text-black lg:text-sm sm:px-16 xl:px-48 text-center w-3xl mt-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-        <a href="#" className="inline-flex justify-center items-center  mb-7 py-4 px-12  bg-[#6D91EE]  rounded-full  hover:bg-gray-200 " role="alert">
-            <span className="text-sm rounded-full text-white">Help me</span> 
-        </a>
+       
     </div>
 </section>
     
